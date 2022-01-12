@@ -1,0 +1,395 @@
+<meta name="viewport" content="width=device-width">
+<meta name="csrf-token" content="m3zzB1ttg15rIrb7VjWr805V6ULBuH9E5Mo5ncD4">
+
+<style>
+            body {
+            background: #000 url(https://imgur.com/ZRPHUtP.jpg);
+            background-size: cover;
+            overflow: hidden;
+            padding: 10px;
+        }
+    @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,300,200);
+    .lockerBackground {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        opacity: .8;
+        display: none;
+        z-index: 9999998
+    }
+
+    .lockerPopup {
+        height: auto;
+        z-index: 9999999;
+        top: 50%;
+        left: 50%;
+        position: fixed
+    }
+
+    .lockerPopup .header {
+        text-align: center;
+        font-weight: 700;
+        font-family: 'Source Sans Pro', sans-serif
+    }
+
+    .lockerPopup .content {
+        text-align: center;
+        font-family: 'Source Sans Pro', sans-serif
+    }
+
+    .lockerPopup .footer {
+        font-family: 'Source Sans Pro', sans-serif;
+        text-align: center
+    }
+
+    .lc-checks {
+        list-style: none;
+        margin: 0;
+        position: relative;
+        font-family: 'Source Sans Pro', sans-serif
+    }
+
+    .lc-checks li {
+        position: relative;
+        cursor: hand;
+        text-align: center;
+        display: block
+    }
+
+    .animated {
+        -webkit-animation-duration: 1.5s;
+        animation-duration: 1.5s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both
+    }
+
+    @-webkit-keyframes bounceInDown {
+        0% {
+            opacity: 0;
+            -webkit-transform: translate(-50%, -2000px)
+        }
+        60% {
+            opacity: 1;
+            -webkit-transform: translateY(-50%, -53%)
+        }
+        80% {
+            -webkit-transform: translateY(-50%, -51%)
+        }
+        100% {
+            -webkit-transform: translate(-50%, -50%)
+        }
+    }
+
+    @keyframes bounceInDown {
+        0% {
+            opacity: 0;
+            transform: translate(-50%, -2000px)
+        }
+        60% {
+            opacity: 1;
+            transform: translate(-50%, -53%)
+        }
+        80% {
+            transform: translate(-50%, -51%)
+        }
+        100% {
+            transform: translate(-50%, -50%)
+        }
+    }
+
+    .bounceInDown {
+        -webkit-animation-name: bounceInDown;
+        animation-name: bounceInDown
+    }
+
+    .lockerPopup {
+        min-width: 400px;
+        width: auto;
+        background-color: #ddd;
+        color: purple;
+        border-top: 10px solid #720969;
+        border-bottom: 10px solid #720969;
+        border-radius: 15px;
+        display: inline
+    }
+
+    .lockerPopup .header {
+        color: #fff;
+        background-color: #720969;
+        font-size: 20pt;
+        padding: 0 0 10px;
+        border-bottom: 1px solid #c3c2c2
+    }
+
+    .lockerPopup .header img {
+        height: 20px
+    }
+
+    .lockerPopup .content {
+        padding: 20px 10px 0 10px;
+        font-size: 17px
+    }
+
+    .lockerPopup a {
+        color: #fff !important
+    }
+
+    .lockerPopup .footer {
+        font-size: 18px;
+        padding: 20px;
+        font-weight: 600
+    }
+
+    .lc-checks {
+        padding: 20px 0 0
+    }
+
+    .lc-checks li {
+        padding: 5px 0 !important;
+        width: 80%;
+        margin-left: 9%;
+        background-color: #720909;
+        margin-bottom: 5px !important;
+        font-weight: 700 !important;
+        border-radius: 10px !important
+    }
+
+    .sk-folding-cube {
+        margin: 20px auto;
+        width: 40px;
+        height: 40px;
+        position: relative;
+        -webkit-transform: rotateZ(45deg);
+        transform: rotateZ(45deg)
+    }
+
+    .sk-folding-cube .sk-cube {
+        float: left;
+        width: 50%;
+        height: 50%;
+        position: relative;
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1)
+    }
+
+    .sk-folding-cube .sk-cube:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #333;
+        -webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;
+        animation: sk-foldCubeAngle 2.4s infinite linear both;
+        -webkit-transform-origin: 100% 100%;
+        -ms-transform-origin: 100% 100%;
+        transform-origin: 100% 100%
+    }
+
+    .sk-folding-cube .sk-cube2 {
+        -webkit-transform: scale(1.1) rotateZ(90deg);
+        transform: scale(1.1) rotateZ(90deg)
+    }
+
+    .sk-folding-cube .sk-cube3 {
+        -webkit-transform: scale(1.1) rotateZ(180deg);
+        transform: scale(1.1) rotateZ(180deg)
+    }
+
+    .sk-folding-cube .sk-cube4 {
+        -webkit-transform: scale(1.1) rotateZ(270deg);
+        transform: scale(1.1) rotateZ(270deg)
+    }
+
+    .sk-folding-cube .sk-cube2:before {
+        -webkit-animation-delay: .3s;
+        animation-delay: .3s
+    }
+
+    .sk-folding-cube .sk-cube3:before {
+        -webkit-animation-delay: .6s;
+        animation-delay: .6s
+    }
+
+    .sk-folding-cube .sk-cube4:before {
+        -webkit-animation-delay: .9s;
+        animation-delay: .9s
+    }
+
+    @-webkit-keyframes sk-foldCubeAngle {
+        0%,
+        10% {
+            -webkit-transform: perspective(140px) rotateX(-180deg);
+            transform: perspective(140px) rotateX(-180deg);
+            opacity: 0
+        }
+        25%,
+        75% {
+            -webkit-transform: perspective(140px) rotateX(0);
+            transform: perspective(140px) rotateX(0);
+            opacity: 1
+        }
+        100%,
+        90% {
+            -webkit-transform: perspective(140px) rotateY(180deg);
+            transform: perspective(140px) rotateY(180deg);
+            opacity: 0
+        }
+    }
+
+    @keyframes sk-foldCubeAngle {
+        0%,
+        10% {
+            -webkit-transform: perspective(140px) rotateX(-180deg);
+            transform: perspective(140px) rotateX(-180deg);
+            opacity: 0
+        }
+        25%,
+        75% {
+            -webkit-transform: perspective(140px) rotateX(0);
+            transform: perspective(140px) rotateX(0);
+            opacity: 1
+        }
+        100%,
+        90% {
+            -webkit-transform: perspective(140px) rotateY(180deg);
+            transform: perspective(140px) rotateY(180deg);
+            opacity: 0
+        }
+    }
+
+    :root {
+        --custom-background-opacity: 0.8;
+    }
+
+    /* overrides */
+
+    .lockerBackground {
+        opacity: var(--custom-background-opacity);
+    }
+</style>
+
+<style>
+
+    :root {
+        --custom-foreground-color: #720969;
+        --custom-background-color: #ffffff;
+    }
+
+    /* overrides */
+
+    .lockerPopup {
+        background-color: var(--custom-background-color);
+        color: var(--custom-foreground-color);
+        border-top: 10px solid var(--custom-foreground-color);
+        border-bottom: 10px solid var(--custom-foreground-color);
+    }
+
+    .lockerPopup .header {
+        background-color: var(--custom-foreground-color);
+        color: var(--custom-background-color);
+    }
+
+    .lockerPopup .lc-checks li {
+        background-color: var(--custom-foreground-color);
+        color: var(--custom-background-color);
+    }
+</style>
+
+
+<style id="custom-custom-css">
+</style>
+
+<div id="contentLockerBackground" class="lockerBackground"></div>
+<div id="contentLocker" class="lockerPopup animated bounceInDown">
+    <div class="header">
+        <img src="https://d3qilfrpqzfrg4.cloudfront.net/public/img/cl/desktop/rezzio/lock.png" style="height: 26px;" />
+        <span id="tool-title">Human Verification</span>
+    </div>
+    <div class="content">
+        <span id="custom-countdown">Complete <span id="conversions-remaining">1</span> more offer(s) to continue</span>
+        <br />
+        <span id="tool-description">Cash Will Be Added Once You Get Verified</span>
+    </div>
+    <div class="links">
+        <ul class="lc-checks">
+            <div id="offer-28092">
+                <a href="https://opaldownloads.com/show.php?l=0&u=332171&id=32212&tracking_id="
+                    target="_blank">
+                    <li><span class="lc-checks__feature">Install an App from MyAppFree!</span></li>
+                </a>
+            </div>
+            <div class="links">
+                <ul class="lc-checks">
+                    <div id="offer-28092">
+                        <a href="https://grabclix.com/show.php?l=0&u=332171&id=36877&tracking_id="
+                            target="_blank">
+                            <li><span class="lc-checks__feature">$1000 Paypal Gift Card to Spend!</span></li>
+                        </a>
+                    </div>
+                    <div class="links">
+                        <ul class="lc-checks">
+                            <div id="offer-28092">
+                                <a href="https://binfileoffer.com/show.php?l=0&u=332171&id=36875&tracking_id="
+                                    target="_blank">
+                                    <li><span class="lc-checks__feature">$1000 Mastercard Gift Card to Spend!</span></li>
+                                </a>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="links">
+                        <ul class="lc-checks">
+                            <div id="offer-28092">
+                                <a href="https://grabclix.com/show.php?l=0&u=332171&id=37016&tracking_id="
+                                    target="_blank">
+                                    <li><span class="lc-checks__feature">Playing the Best Skill-Based Games!</span></li>
+                                </a>
+                            </div>
+                        </ul>
+                    </div>
+                </ul>
+            </div>          
+        </ul>
+    </div>
+    <div class="footer">
+        <div class="sk-folding-cube">
+            <div class="sk-cube1 sk-cube"></div>
+            <div class="sk-cube2 sk-cube"></div>
+            <div class="sk-cube4 sk-cube"></div>
+            <div class="sk-cube3 sk-cube"></div>
+        </div>
+        <span id="custom-checking">Checking completion</span>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var channel = "Tool.ContentLocker.wj3m2.7419ca81b6a5d30e4b72f9e1d208acdb";
+    var route = "https://www.verifyzone.net/cl/ajax/c/wj3m2";
+    var l_route = "https://www.verifyzone.net/cl/ajax/e/wj3m2";
+    var js = "https://d3qilfrpqzfrg4.cloudfront.net/public/js/cl/desktop.js";
+</script>
+
+<script type="text/javascript">
+    function loadScript(sScriptSrc, oCallback) {
+        var oHead = document.getElementsByTagName('head')[0];
+        var oScript = document.createElement('script');
+        oScript.type = 'text/javascript';
+        oScript.src = sScriptSrc;
+        oScript.onload = oCallback;
+        oHead.appendChild(oScript);
+    }
+
+    loadScript(js, function() {
+        window.locker = new contentLocker({
+            'id': "wj3m2",
+            'blockContextMenu': true,
+            'pageCloseMessage': "Are you sure you want to leave?",
+        });
+        
+    });
+</script>
